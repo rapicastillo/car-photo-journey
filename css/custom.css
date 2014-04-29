@@ -69,8 +69,13 @@ body > section#sec-seven {
 	}
 
 body > section#sec-eight {
-	background-image:url(../img/back-eight.jpg);
+	/*background-image:url(../img/back-eight.jpg);*/
+	background-image:url(../img/first-image.jpg);
 	}
+
+body > section#sec-second-img {
+	background-image:url(../img/second-image.jpg);
+}
 
 body > section#sec-nine {
 	background-image:url(../img/back-nine.jpg);

@@ -42,7 +42,7 @@ $(function() {
 		//$(this).appendTo($link);
 	});
 });
-
+/*
 var map = L.mapbox.map('map', 'reliefweb.66vzehfr', {
     //zoomControl: false
 })
@@ -50,3 +50,4 @@ var map = L.mapbox.map('map', 'reliefweb.66vzehfr', {
 
 map.scrollWheelZoom.disable();
 map.dragging.disable();
+*/
