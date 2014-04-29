@@ -22,7 +22,6 @@ body {
 	min-height: 2000px;
 	/*background: #000;*/
 	background: url(../img/background.jpg);
-	background-size: cover;
 	}
 
 body > section {
@@ -34,8 +33,13 @@ body > section {
 	background:transparent center no-repeat;
 	background-size:cover;
 	overflow:hidden; /*optional*/
+	visibility: hidden;
 	}
 
+#sec-seven
+{
+  display: none;
+}
 body > section#sec-one {
 	background-image:url('../img/back-one.jpg');
 	}
