@@ -15,7 +15,7 @@ $( '.voice-slideshow' ).cycle();
 
 $(function() {
 	var win;
-	$(".back .circle").each(function(i, item) {
+	$(".back .circle, .speak-up-link").each(function(i, item) {
 
 		
 		$(this).bind("click", function() {
@@ -24,12 +24,12 @@ $(function() {
 				win.close();
 			}
 
-			show_text = $(this).find("p").text().replace(/#carcrisis/g, '');
+			show_text = $(this).find("p").text().replace(/#CARCrisis/g, '');
 
 			var param = $.param({
-				url: "http://interactive.unocha.org/caf/2014/mar/",
+				url: "http://ow.ly/wloDg",
 				via: "unocha",
-				hashtags: "carcrisis",
+				hashtags: "CARCrisis",
 				text: show_text
 			});
 

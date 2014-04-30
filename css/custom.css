@@ -553,7 +553,7 @@ body > section#sec-ten h2, body > section#sec-ten .h2{
 }
 
 /* RC Changes */
-.back .circle, .front .circle
+.back .circle, .front .circle, .speak-up-link
 {
 	cursor: pointer;
 }
@@ -734,6 +734,12 @@ span.next{
 	background-image: url("../img/unocha-logo.svg");
 }
 
+.connect a.whd-logo { 
+	width: 144px; 
+	background-image: url("../img/WHD.png"); 
+	background-color: transparent; 
+	height: 71px; 
+}
 
 body > section#sec-twelve .well{
 	background:rgba(255, 255, 255, 0.15);
