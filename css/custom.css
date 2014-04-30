@@ -40,10 +40,10 @@ body > section {
 {
   display: none;
 }
-body > section#sec-one {
-	background-image:url('../img/back-one.jpg');
+body > section#sec-one, body > section#preloader {
+	 background-image:url(http://ocha.smugmug.com/photos/i-t5tjqBd/0/O/i-t5tjqBd.jpg); 
 	}
-
+/*
 body > section#sec-two {
 	background-image:url('../img/back-two.jpg');
 	}
@@ -63,13 +63,15 @@ body > section#sec-five {
 body > section#sec-six {
 	background-image:url('../img/back-six.jpg');
 	}
+*/
 
 body > section#sec-seven {
 	background-color: #000;
 	}
 
+/*
 body > section#sec-eight {
-	/*background-image:url(../img/back-eight.jpg);*/
+	background-image:url(../img/back-eight.jpg);
 	background-image:url(../img/first-image.jpg);
 	}
 
@@ -80,13 +82,13 @@ body > section#sec-second-img {
 body > section#sec-nine {
 	background-image:url(../img/back-nine.jpg);
 	}
-
+*/
 body > section#sec-ten {
 	background-color: rgba(255, 204, 85, 0.8);
 	}
 
 body > section#sec-eleven {
-	background-image:url(../img/back-eleven.jpg);
+	/* background-image:url(../img/back-eleven.jpg); */	
 	}
 
 body > section#sec-twelve {

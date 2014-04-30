@@ -48,15 +48,20 @@
 				</div>
 			</div>
 	</div>
+	<div id="introbox" class="black-box"></div>
 </section>
 <!-- END: PRELOADER CHANGES -->
 
-<section id="sec-one" data-0p="z-index: 100000" data-_box--80p="transform:translate(0,0%); opacity: 1;" data-_box--40p="transform:translate(0,-100%); display: block;" data-_box--19p="display: none;">
+<section id="sec-one" 
+	data-0p="z-index: 5000" 
+	data-_box--80p="transform:translate(0,0%); opacity: 1;" 
+	data-_box--40p="transform:translate(0,-100%); display: block;" 
+	data-_box--39p="display: none;">
 	<!--div class="box" data-0p="width:0%;" data-_box-0p="width:100%" data-_box-1p="opacity:1;" data-_box-2p="opacity:0;"></div -->
 
 <div class="language-corner"></div>
 <div class="language-corner-content"><a href="">FR</a></div>
-<div id="introbox" class="black-box" data-0p="opacity:1;" data-10p="opacity:0"></div>
+<!-- div id="introbox" class="black-box" data-0p="opacity:1;" data-10p="opacity:0"></div -->
 	<div class="container">
 			<div class="row">
 				<div class="col-12 text-center">
@@ -664,75 +669,91 @@
 */
 		});
 
-		var preloaded_image =  
-		[
-		  ["section#sec-two", "img/back-two.jpg"],
-		  ["section#sec-three", "img/back-three.jpg"],
-		  ["section#sec-four", "img/back-four.jpg"],
-		  ["section#sec-five", "img/back-five.jpg"],
-		  ["section#sec-six", "img/back-six.jpg"],
-		  ["section#sec-eight", "img/first-image.jpg"],
-		  ["section#sec-nine", "img/back-nine.jpg"],
-		  ["section#sec-eleven", "img/back-eleven.jpg"]
+		var preloaded_image =  [
+			["section#sec-eight", "http://ocha.smugmug.com/photos/i-6H3mn2s/0/O/i-6H3mn2s.jpg"], /*1st*/
+			["section#sec-second-img", "http://ocha.smugmug.com/photos/i-DTtwK8j/0/O/i-DTtwK8j.jpg"], /*2nd*/
+
+			["section#sec-two", "http://ocha.smugmug.com/photos/i-L6TdvBJ/0/O/i-L6TdvBJ.jpg"], /*3rd*/
+		  ["section#sec-three", "http://ocha.smugmug.com/photos/i-BXP6SZx/0/O/i-BXP6SZx.jpg"], /*4th*/
+		  ["section#sec-four", "http://ocha.smugmug.com/photos/i-KxtmnCL/0/O/i-KxtmnCL.jpg"], /*5th*/
+		  ["section#sec-five", "http://ocha.smugmug.com/photos/i-cPMBNNt/0/O/i-cPMBNNt.jpg"],
+		  ["section#sec-six", "http://ocha.smugmug.com/photos/i-2qHPSng/0/O/i-2qHPSng.jpg"], /*6th*/
+		  ["section#sec-nine", "http://ocha.smugmug.com/photos/i-cPMBNNt/0/O/i-cPMBNNt.jpg"], /*7th*/
+		  ["section#sec-eleven", "http://ocha.smugmug.com/photos/i-bXqGdzc/0/O/i-bXqGdzc.jpg"] /*8th*/
 		];
+		/*
+		[
+		  
+		];
+		*/
 		
 		$("section").css("visibility" , "hidden");
 
+		$("#preloader").css("visibility", "visible");		
 		$("#preloader").show();
 
-                                var s = skrollr.init({
-                                        constants: {
-                                                box: '200p'
-                                        }
-                                });
+		$("body").css("overflow", "hidden");
+       
 
-		$(preloaded_image).each(function(i, item) {
+		$("section").css("visibility", "visible");
+		load_images();
 
-			
-
-			$("<img />").attr("src", item[1]);
-
-			$(item[0]).css("backgroundImage", "url(" + item[1] + ")");
-			
-
-			var value = parseInt((i+1) * 100/preloaded_image.length);
-			$(".knob").val(value).trigger('change');
-			//$(".knob");
-
-			
-			if (value >= 100)
-			{
-				$("#preloader").fadeOut("slow");
-				$("body").css("overflow", "auto");
-
-				var s = skrollr.init({
-					constants: {
-						box: '200p'
-					}
-				});
+		function load_images() {
 
 
-				skrollr.menu.init(s);
-				$("section").css("visibility", "visible");
-				$("section").css("display", "block");
-				$("#preloader").hide();
+			$(preloaded_image).each(function(i, item) {
+				
+				$(item[0]).css("backgroundImage", "url('" + item[1] + "')");
 
-				var map = L.mapbox.map('map', 'reliefweb.66vzehfr', {
-				    zoomControl: true
-				})
+				var value = parseInt((i+1) * 100/preloaded_image.length);
+				$(".knob").val(value).trigger('change');
+				//$(".knob");
+
+				if (value >= 100)
+				{
+					console.log("XXX");
+
+					$("section").css("visibility", "visible");
+					$("#preloader").fadeOut("slow");
+
+					$("#sec-seven").show();
+					/* skrollr_obj.destroy();
+					skrollr.init({
+						constants: {
+		                    box: '200p'
+		                }
+	           	 	}); */
+
+					var s = skrollr.init({
+			                constants: {
+			                        box: '200p'
+			                },
+			                render: function(data) {
+			                	$("body").css("overflow", "auto");
+			                	
+			                }
+			        });
+					skrollr.menu.init(s);
+				}
+			}); 
+
+		}
+
+		var map = L.mapbox.map('map', 'reliefweb.66vzehfr', {
+					    zoomControl: true
+					})
 				    .setView([6.5, 20.6167], 7);
 
-				map.scrollWheelZoom.disable();
-				map.dragging.disable();
-
-				$("#sec-seven").show();
-
-			}
-		});
+		map.scrollWheelZoom.disable();
+		
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+		{
+			map.dragging.disable();
+		}
 
 	});
 
-$("#introbox").fadeOut("30000");
+/*$("#introbox").fadeOut("30000"); */
 	</script>
 
 
